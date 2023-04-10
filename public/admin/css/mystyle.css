@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  width: 980px;
+  margin: auto;
+}
+
+.wrapper .header {
+  height: 100px;
+  background-color: aqua;
+  font-size: 18px;
+  line-height: 100px;
+  text-align: center;
+  color: aliceblue;
+}
+
+.wrapper .footer {
+  height: 100px;
+  background-color: black;
+  font-size: 18px;
+  line-height: 100px;
+  text-align: center;
+  color: aliceblue;
+}
+
+.wrapper .content {
+  height: auto;
+  padding: 20px;
+}
