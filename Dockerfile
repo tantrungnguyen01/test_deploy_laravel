@@ -40,9 +40,9 @@ RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* /tmp/* /var/tmp/* /usr/share/do
 RUN composer clear-cache && \
     composer install --no-interaction --optimize-autoloader --no-dev && \
     composer dump-autoload --no-dev --classmap-authoritative
+    
 # Cài đặt các gói ứng dụng đã định nghĩa trong composer.json
-RUN composer install --no-interaction
-
+RUN composer install --no-interaction --ignore-platform-reqs
 # Chạy các câu lệnh tạo CSDL và chạy các migration
 RUN php artisan migrate --force
 
