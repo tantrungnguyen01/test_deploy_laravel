@@ -36,7 +36,10 @@ WORKDIR /app
 
 # Sao chép các file ứng dụng vào container
 COPY . /app
-
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* /tmp/* /var/tmp/* /usr/share/doc/*
+RUN composer clear-cache && \
+    composer install --no-interaction --optimize-autoloader --no-dev && \
+    composer dump-autoload --no-dev --classmap-authoritative
 # Cài đặt các gói ứng dụng đã định nghĩa trong composer.json
 RUN composer install --no-interaction
 
@@ -56,6 +59,7 @@ ENV DB_PORT=3306
 ENV DB_DATABASE=myapp
 ENV DB_USERNAME=myapp
 ENV DB_PASSWORD=secret
+
 
 # Thiết lập port mặc định cho ứng dụng Laravel
 EXPOSE 9000
